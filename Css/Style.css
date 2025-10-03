@@ -1,0 +1,112 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+
+ }
+
+ @media (min-width: 1536px) {
+
+     /* Use a more specific selector to guarantee the override. */
+     .container.mx-auto {
+         max-width: 1280px;
+     }
+ }
+
+ :root {
+     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+ }
+
+ input:focus,
+ textarea:focus {
+     border-color: #10B981 !important;
+     /* Green border on focus */
+     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4) !important;
+     /* Light green glow */
+ }
+
+ body {
+     font-family: var(--font-family-sans-serif);
+ }
+
+ .font-yeseva-one {
+     font-family: 'Yeseva One', cursive;
+ }
+
+ p {
+     font-size: 18px;
+     line-height: 1.88;
+
+ }
+
+
+ .hero-section {
+     background-size: cover;
+     background-position: center;
+     position: relative;
+ }
+
+ .hero-section::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+ }
+
+ p {
+     line-height: 1.15;
+ }
+
+ /* Custom Styles for smooth transition and dot appearance */
+ #slider {
+     transition: transform 0.5s ease-in-out;
+     /* Added touch-action to prevent browser default scrolling during swipe */
+     touch-action: pan-y;
+ }
+
+ /* Styling for pagination dots */
+ .dot {
+     transition: all 0.3s ease;
+ }
+
+ .dot.active {
+     background-color: #10B981;
+     /* green-600 equivalent */
+     width: 1.5rem;
+     /* Make the active dot slightly longer */
+ }
+
+ /* Styling for disabled buttons */
+ #prev:disabled,
+ #next:disabled {
+     opacity: 0.3;
+
+ }
+
+
+ /* --- ICON ANIMATION STYLES (New Code) --- */
+
+ /* Define the gentle float keyframes */
+ @keyframes iconFloat {
+     0% {
+         transform: translateY(0);
+     }
+
+     50% {
+         transform: translateY(-8px);
+     }
+
+     100% {
+         transform: translateY(0);
+     }
+ }
+
+ /* Apply the animation class to the icons */
+ .animate-icon-float {
+     /* 3 seconds duration, ease-in-out timing, infinitely looping */
+     animation: iconFloat 3s ease-in-out infinite;
+ }

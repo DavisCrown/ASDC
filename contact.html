@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASDC | Contact</title>
+    <!-- FAVICON LINK UPDATED TO USE YOUR IMAGE FILE -->
+    <link rel="icon" type="image/png" href="Images/favicon-preview 16x16.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Css/Style.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+
+    
+  <!-- Top Info Bar -->
+    <div class="bg-white text-gray-700 py-2 px-6 hidden md:block">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="tel:+250788698188"
+                    class="flex items-center space-x-2 text-sm hover:text-green-600 transition-colors">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+250788698188</span>
+                </a>
+                <a href="tel:+250782767273"
+                    class="flex items-center space-x-2 text-sm hover:text-green-600 transition-colors">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+250782767273</span>
+                </a>
+                <a href="mailto:asdcwelfare@gmail.com"
+                    class="flex items-center space-x-2 text-sm hover:text-green-600 transition-colors">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>asdcwelfare@gmail.com</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-green-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-green-600 transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-green-600 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="bg-green-600 shadow-xl">
+        <div class="container mx-auto px-6 py-2 min-h-[100px] flex justify-between items-center">
+
+            <!-- Left Side: Logo -->
+            <div class="flex items-center space-x-2">
+                <a href="#" class="block">
+                    <!-- LOGO SIZE: w-28 h-22 (112px wide, 88px tall) -->
+                    <img src="Images/logo-removebg-preview.png" alt="ASDC LOGO" class="w-28 h-22 object-cover">
+                </a>
+            </div>
+
+            <!-- Center: Desktop Navigation Links (Visible md+) -->
+            <nav class="hidden md:flex justify-center space-x-8 flex-1 max-w-xl">
+                <a href="index.html" class="text-white hover:text-black transition-colors font-semibold py-2">Home</a>
+                <a href="About.html" class="text-white hover:text-black transition-colors font-semibold py-2">About</a>
+                <a href="contact.html"
+                    class="text-white hover:text-black transition-colors font-semibold py-2">Contact</a>
+            </nav>
+
+            <!-- Right Side: Search, Donate Button (Desktop) & Mobile Toggle (Mobile) -->
+            <div class="flex items-center space-x-4">
+
+                <!-- NEW: Search Bar (Desktop Only) - Styled with a yellow button for contrast -->
+                <form id="search-form" onsubmit="return false;"
+                    class="hidden md:flex items-center rounded-full overflow-hidden shadow-md">
+                    <input type="search" id="search-input" oninput="handleSearch()" placeholder="Search our programs..."
+                        class="px-4 py-2 text-gray-700 focus:outline-none w-36 lg:w-48 text-sm">
+                    <button type="submit"
+                        class="bg-yellow-400 text-gray-800 p-2 h-full transition-colors hover:bg-yellow-500 flex items-center justify-center">
+                        <!-- Search Icon -->
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Desktop Donate Button (Stays on the far right) -->
+                <a href="donation_form.html"
+                    class="hidden md:block bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors shadow-md transform hover:scale-105">
+                    Make a Donate
+                </a>
+
+                <!-- Mobile Buttons & Hamburger Menu (Visible only on mobile/md:hidden) -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <!-- Mobile Donate Button for immediate access -->
+                    <a href="donation_form.html"
+                        class="bg-white text-green-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition-colors shadow-md">
+                        Donate
+                    </a>
+                    <!-- Hamburger Button (Required ID: mobile-menu-button) -->
+                    <button id="mobile-menu-button" class="text-white focus:outline-none p-1">
+                        <!-- SVG Icon (Required ID: menu-icon) - This is where the JS swaps paths -->
+                        <svg id="menu-icon" class="w-8 h-8 transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu"
+        class="hidden md:hidden bg-green-700 fixed top-0 left-0 w-full h-full z-40 transition-transform duration-300 transform -translate-x-full">
+        <div class="flex flex-col space-y-4 p-8 pt-24">
+            <a href="index.html" class="text-white text-xl hover:text-black font-semibold">Home</a>
+            <a href="About.html" class="text-white text-xl hover:text-black font-semibold">About</a>
+            <a href="contact.html" class="text-white text-xl hover:text-black font-semibold">Contact</a>
+            <!-- Mobile Search Bar -->
+            <form class="flex items-center rounded-lg overflow-hidden mt-4 shadow-md">
+                <input type="search" placeholder="Search..."
+                    class="px-4 py-3 text-gray-700 focus:outline-none w-full text-base rounded-l-lg">
+                <button type="submit"
+                    class="bg-yellow-400 text-gray-800 p-3 transition-colors hover:bg-yellow-500 flex items-center justify-center rounded-r-lg">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-40 px-6 text-center relative overflow-hidden">
+        <img src="Images/contact.jpg" alt="Charity background" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto relative z-10">
+
+            <!-- Title will fade down dramatically -->
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 font-yeseva-one" data-aos="fade-down"
+                data-aos-duration="1200" data-aos-easing="ease-out-back">
+                Contact Us
+            </h1>
+        </div>
+    </section>
+
+
+    <!-- Contact Form Section -->
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-8">
+        <div class="w-full max-w-7xl mx-auto">
+
+            <!-- Title Section - Fades up on scroll -->
+            <header class="text-center mb-12" data-aos="fade-up" data-aos-duration="800">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    Get In <span class="text-green-600">Touch</span>
+                </h1>
+                <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+                    We're here to help. Send us a message or find our details below.
+                </p>
+                <div class="w-20 h-1 bg-green-600 mx-auto mt-4 rounded-full"></div>
+            </header>
+
+            <!-- Contact Layout: Form (Left) and Info (Right) -->
+            <div class="flex flex-col lg:flex-row gap-8">
+
+                <!-- Left Column: Contact Form - Slides in from the right -->
+                <section class="bg-white rounded-2xl shadow-2xl p-6 sm:p-10 lg:w-2/3" data-aos="fade-right"
+                    data-aos-duration="1000">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Send Us A Message</h2>
+
+                    <form action="#" method="POST" class="space-y-6">
+                        <!-- Name and Email Group -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="full-name" class="block text-sm font-medium text-gray-700 mb-2">Full
+                                    Name</label>
+                                <input type="text" name="full-name" id="full-name" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg transition duration-200 outline-none focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email
+                                    Address</label>
+                                <input type="email" name="email" id="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg transition duration-200 outline-none focus:ring-green-500 focus:border-green-500">
+                            </div>
+                        </div>
+
+                        <!-- Subject Field -->
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" name="subject" id="subject" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg transition duration-200 outline-none focus:ring-green-500 focus:border-green-500">
+                        </div>
+
+                        <!-- Message Field -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your
+                                Message</label>
+                            <textarea name="message" id="message" rows="5" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-y transition duration-200 outline-none focus:ring-green-500 focus:border-green-500"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-2">
+                            <button type="submit"
+                                class="w-full md:w-auto px-8 py-3 text-lg font-semibold text-white bg-green-600 hover:bg-green-700 rounded-full shadow-lg transform transition duration-300 ease-in-out hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-green-300">
+                                Submit Message
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Right Column: Contact Information and Map - Slides in from the left (with delay) -->
+                <section class="lg:w-1/3 flex flex-col space-y-8" data-aos="fade-left" data-aos-duration="1000"
+                    data-aos-delay="300">
+
+                    <!-- Contact Details Card -->
+                    <div class="bg-green-600 text-white rounded-2xl p-8 shadow-2xl flex-grow">
+                        <h2 class="text-3xl font-bold mb-6 border-b border-green-500 pb-3">Our Details</h2>
+
+                        <div class="space-y-6">
+                            <!-- Address -->
+                            <div class="flex items-start space-x-4">
+                                <!-- Icon: Map Pin (Lucide Icon) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 mt-1"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-lg">Office Address</p>
+                                    <p class="text-green-200">Rwanda,Kamonyi district,Runda sector.</p>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="flex items-start space-x-4">
+                                <!-- Icon: Phone (Lucide Icon) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 mt-1"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 17.5 17.5 0 0 0 .97 4.88 2 2 0 0 1-.5 2.13l-1.88 1.88a18.23 18.23 0 0 0 11.23 11.23l1.88-1.88a2 2 0 0 1 2.13-.5 17.5 17.5 0 0 0 4.88.97 2 2 0 0 1 1.72 2z" />
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-lg">Call Us</p>
+                                    <p class="text-green-200">+250788698188</p>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="flex items-start space-x-4">
+                                <!-- Icon: Mail (Lucide Icon) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 mt-1"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-lg">Email Support</p>
+                                    <p class="text-green-200">asdcwelfare@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Google Map Embed DIV (Replaced Placeholder) -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden h-48 lg:h-64 w-full">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.339174170799!2d-118.25707018485093!3d34.05223428060827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1677777777777!5m2!1sen!2sin"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="Office Location on Google Maps">
+                        </iframe>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-[#F3FCF8] text-gray-200 py-16 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Column 1: Logo and description -->
+                <div>
+                    <a href="index.html" class="text-3xl font-bold font-yeseva-one text-white">
+                        <img src="Images/logo-removebg-preview.png" alt="ASDC logo" class="h-24 w-auto">
+                    </a>
+                    <p class="mt-4 text-sm text-[#7A7B7C]">
+                        ASDC is committed to advancing sustainable development and citizen welfare through
+                        integrated
+                        action.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:border-white transition-colors text-blue-600 bg-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:border-white transition-colors bg-blue-600">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:border-white transition-colors bg-white">
+                            <i class="fab fa-youtube text-red-600"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:border-white transition-colors bg-blue-600">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Column 2: Quick Links -->
+                <div class="text-[#7A7B7C]">
+                    <h4 class="text-lg font-bold text-black mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-[#191d34] transition-colors">Home</a></li>
+                        <li><a href="About.html" class="hover:text-[#191d34] transition-colors">About us</a></li>
+                        <li><a href="contact.html" class="hover:text-[#191d34] transition-colors">Contact</a></li>
+                        <li><a href="donation_form.html" class="hover:text-[#191d34] transition-colors">Donate</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Our Services -->
+                <div class="text-[#7A7B7C]">
+                    <h4 class="text-lg font-bold text-black mb-6">Our Services</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><span class="hover:text-[#191d34] transition-colors">Education Support</span></li>
+                        <li><span class="hover:text-[#191d34] transition-colors">Food Support</span></li>
+                        <li><span class="hover:text-[#191d34] transition-colors">Health Support</span></li>
+                        <li><span class="hover:text-[#191d34] transition-colors">Children's Protection</span></li>
+                        <li><span class="hover:text-[#191d34] transition-colors">Community Help</span></li>
+                    </ul>
+                </div>
+                <!-- Column 4: Get In Touch -->
+                <div class="text-[#7A7B7C]">
+                    <h4 class="text-lg font-bold text-black mb-6">Get In Touch</h4>
+                    <p class="text-sm">Rwanda,Kamonyi district,Runda sector.</p>
+                    <p class="mt-3 text-sm flex items-center space-x-2 hover:text-[#191d34]">
+                        <a href="tel:+250788698188">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+250788698188</span>
+                        </a>
+                    </p>
+                    <p class="mt-3 text-sm flex items-center space-x-2 hover:text-[#191d34]">
+                        <a href="tel:+250782767273">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+250782767273</span>
+                        </a>
+                    </p>
+                    <p class="mt-4 text-sm flex items-center space-x-2 hover:text-[#191d34]">
+                        <a href="mailto:asdcwelfare@gmail.com">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>asdcwelfare@gmail.com</span>
+                        </a>
+                    </p>
+                    <div class="mt-6">
+                        <a href="#"
+                            class="inline-block px-6 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-[#191d34] transition-colors">Donate
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 text-center font-bold text-black text-sm">
+            <p>Copyright © ASDC. All Rights Reserved. </p>
+        </div>
+    </footer>
+
+
+    <!-- Load AOS JavaScript and initialize -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize AOS with a 'once: true' setting so animations only happen the first time
+            // the element enters the viewport.
+            AOS.init({
+                once: false,
+                duration: 800, // Standard animation duration
+            });
+        });
+    </script>
+    <script src="Js/main.js"></script>
+</body>
+
+</html>

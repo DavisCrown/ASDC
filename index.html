@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASDC | Home</title>
+    <!-- FAVICON LINK UPDATED TO USE YOUR IMAGE FILE -->
+    <link rel="icon" type="image/png" href="Images/favicon-preview 16x16.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Css/Style.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Top Info Bar -->
+    <div class="bg-white text-gray-700 py-2 px-6 hidden md:block">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="tel:+250788698188"
+                    class="flex items-center space-x-2 text-sm hover:text-green-600 transition-colors">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+250788698188</span>
+                </a>
+                <a href="tel:+250782767273"
+                    class="flex items-center space-x-2 text-sm hover:text-green-600 transition-colors">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+250782767273</span>
+                </a>
+                <a href="mailto:asdcwelfare@gmail.com"
+                    class="flex items-center space-x-2 text-sm hover:text-green-600 transition-colors">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>asdcwelfare@gmail.com</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-green-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-green-600 transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-green-600 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="bg-green-600 shadow-xl">
+        <div class="container mx-auto px-6 py-2 min-h-[100px] flex justify-between items-center">
+
+            <!-- Left Side: Logo -->
+            <div class="flex items-center space-x-2">
+                <a href="#" class="block">
+                    <!-- LOGO SIZE: w-28 h-22 (112px wide, 88px tall) -->
+                    <img src="Images/logo-removebg-preview.png" alt="ASDC LOGO" class="w-28 h-22 object-cover">
+                </a>
+            </div>
+
+            <!-- Center: Desktop Navigation Links (Visible md+) -->
+            <nav class="hidden md:flex justify-center space-x-8 flex-1 max-w-xl">
+                <a href="index.html" class="text-white hover:text-black transition-colors font-semibold py-2">Home</a>
+                <a href="About.html" class="text-white hover:text-black transition-colors font-semibold py-2">About</a>
+                <a href="contact.html"
+                    class="text-white hover:text-black transition-colors font-semibold py-2">Contact</a>
+            </nav>
+
+            <!-- Right Side: Search, Donate Button (Desktop) & Mobile Toggle (Mobile) -->
+            <div class="flex items-center space-x-4">
+
+                <!-- NEW: Search Bar (Desktop Only) - Styled with a yellow button for contrast -->
+                <form id="search-form" onsubmit="return false;"
+                    class="hidden md:flex items-center rounded-full overflow-hidden shadow-md">
+                    <input type="search" id="search-input" oninput="handleSearch()" placeholder="Search our programs..."
+                        class="px-4 py-2 text-gray-700 focus:outline-none w-36 lg:w-48 text-sm">
+                    <button type="submit"
+                        class="bg-yellow-400 text-gray-800 p-2 h-full transition-colors hover:bg-yellow-500 flex items-center justify-center">
+                        <!-- Search Icon -->
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Desktop Donate Button (Stays on the far right) -->
+                <a href="donation_form.html"
+                    class="hidden md:block bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors shadow-md transform hover:scale-105">
+                    Make a Donate
+                </a>
+
+                <!-- Mobile Buttons & Hamburger Menu (Visible only on mobile/md:hidden) -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <!-- Mobile Donate Button for immediate access -->
+                    <a href="donation_form.html"
+                        class="bg-white text-green-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition-colors shadow-md">
+                        Donate
+                    </a>
+                    <!-- Hamburger Button (Required ID: mobile-menu-button) -->
+                    <button id="mobile-menu-button" class="text-white focus:outline-none p-1">
+                        <!-- SVG Icon (Required ID: menu-icon) - This is where the JS swaps paths -->
+                        <svg id="menu-icon" class="w-8 h-8 transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu"
+        class="hidden md:hidden bg-green-700 fixed top-0 left-0 w-full h-full z-40 transition-transform duration-300 transform -translate-x-full">
+        <div class="flex flex-col space-y-4 p-8 pt-24">
+            <a href="index.html" class="text-white text-xl hover:text-black font-semibold">Home</a>
+            <a href="About.html" class="text-white text-xl hover:text-black font-semibold">About</a>
+            <a href="contact.html" class="text-white text-xl hover:text-black font-semibold">Contact</a>
+            <!-- Mobile Search Bar -->
+            <form class="flex items-center rounded-lg overflow-hidden mt-4 shadow-md">
+                <input type="search" placeholder="Search..."
+                    class="px-4 py-3 text-gray-700 focus:outline-none w-full text-base rounded-l-lg">
+                <button type="submit"
+                    class="bg-yellow-400 text-gray-800 p-3 transition-colors hover:bg-yellow-500 flex items-center justify-center rounded-r-lg">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero-section text-white py-40 px-6 text-left relative overflow-hidden">
+        <img src="Images/Hero1.jpg" alt="Charity background" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto relative z-10">
+            <!-- Animation 1: Get Started Today - Fades in from the left -->
+            <p class="text-lg md:text-xl font-medium mb-4" data-aos="fade-right" data-aos-duration="1000">
+                Get Started Today.
+            </p>
+
+            <!-- Animation 2: H1 Title - Fades up strongly -->
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 max-w-2xl" data-aos="fade-up"
+                data-aos-duration="1000" data-aos-delay="300">
+                Building Resilience Ensuring No One is Left Behind.
+            </h1>
+
+            <!-- Animation 3: Paragraph - Fades up after the title -->
+            <p class="text-lg md:text-xl max-w-2xl mb-8" data-aos="fade-up" data-aos-duration="1000"
+                data-aos-delay="500">
+                ASDC envisions a Rwanda where every citizen is equipped to thrive in a rapidly changing world.
+            </p>
+
+            <!-- Animation 4: Button - Zooms in last for emphasis -->
+            <a href="About.html"
+                class="bg-white text-[#20c997] px-8 py-4 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors"
+                data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="700">Learn
+                More</a>
+        </div>
+    </section>
+
+
+     <!-- Our focused Program Areas -->
+      <section id="focused-programs" class="py-16 bg-[#191d34] relative">
+            <div class="container mx-auto px-4">
+                <!-- Title Animation: Fade in from the top -->
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12" data-aos="fade-down"
+                    data-aos-duration="1000">
+                    Our <span class='text-green-600'>focused Program</span> Areas
+                    <span class="block w-24 h-1 bg-green-600 mx-auto mt-2 rounded-full"></span>
+                </h2>
+
+                <!-- Program Areas Grid (Replaces Slider) -->
+                <div  id="program-areas-grid" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Card 1 - Water, Hygiene and sanitation -->
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-bg  overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-green-600/50">
+                            <img src="Images/sanitation1.jpg" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl text-green-600 font-bold mb-4">Water, Hygiene and sanitation promotion</h3>
+                                <p class="text-white text-[18px] opacity-90">Water is life. We make sure that our communities have access to clean and safe water, adequate sanitation facilities, and promote good hygiene practices to improve health and well-being.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    
+                    <!-- Card 2 - Smart Agriculture & Food Security -->
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-bg  overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-green-600/50">
+                            <img src="Images/Untitled design.jpg" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl text-green-600 font-bold mb-4">Smart Agriculture & Food Security</h3>
+                                <p class="text-white text-[18px] opacity-90">We aimed at supporting and training smallholder farmers across the country with practices adapted to climate change, and improve agricultural productivity with innovation and driven technology while safeguarding the environment.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 - Capacity building and Adoption of Clean Energy -->
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-bg  overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-green-600/50">
+                            <img src="Images/smart energy.jpg" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl text-green-600 font-bold mb-4">Capacity building and Adoption of Clean Energy</h3>
+                                <p class="text-white text-[18px] opacity-90">ASDC helps communities build capacity and adopt renewable energy, reducing emissions and fostering sustainable development.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 - Inclusive Education, Health & Child Protection -->
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-bg  overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-green-600/50">
+                            <img src="Images/education.jpg" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-4 text-green-600">Inclusive Education, Health & Child Protection</h3>
+                                <p class="text-white text-[18px] opacity-90">We promote inclusive education for all especially vulnerable and minority children combat youth alcohol and drug abuse, and protect children from violence, abuse, and neglect.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 - Waste Management & Circular Economy -->
+                    <div data-aos="fade-up" data-aos-delay="500">
+                        <div class="card-bg  overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-green-600/50">
+                            <img src="Images/waste management 2.jpg" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl text-green-600 font-bold mb-4">Waste Management & Circular Economy</h3>
+                                <p class="text-white text-[18px] opacity-90">Promoting smart waste reduction, recycling, and resource recovery to protect ecosystems while promoting green technology and creating green jobs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 - Environmental Protection & Climate Action -->
+                    <div data-aos="fade-up" data-aos-delay="600">
+                        <div class="card-bg  overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-green-600/50">
+                            <img src="Images/climate change.jpg" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl text-green-600 font-bold mb-4">Environmental Protection & Climate Action</h3>
+                                <p class="text-white text-[18px] opacity-90">We conserve natural resources and ecosystems while helping communities adapt to climate change through programs that protect biodiversity and promote sustainable coexistence with nature.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 - Youth, Women & Disability Inclusion -->
+                    <div data-aos="fade-up" data-aos-delay="700">
+                        <div class="card-bg  overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-green-600/50">
+                            <img src="Images/disabilities.jpg" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl text-green-600 font-bold mb-4">Youth, Women & Disability Inclusion</h3>
+                                <p class="text-white text-[18px] opacity-90">ASDC champions the rights of women, persons with disabilities, and marginalized groups, promoting health, fighting gender-based violence, and fostering financial literacy to empower vulnerable communities.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+     </section>
+
+
+    <!-- Our Mission Section -->
+    <section class="bg-[#f3fcf8] py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <!-- Animation 1: Title Fade Down -->
+                <h2 class="text-[40px] font-bold text-gray-800 font-yeseva-one" data-aos="fade-down"
+                    data-aos-duration="800">Our <span class="text-green-600">Mission</span></h2>
+                <!-- Animation 2: Paragraph Fade In -->
+                <p class="text-gray-600 font-bold text-[20px]" data-aos="fade" data-aos-duration="1000"
+                    data-aos-delay="200">
+                    Our
+                    mission is to contribute to sustainable development and
+                    citizen
+                    wellbeing
+                    by promoting inclusive education, green-smart agriculture, environmental protection, waste
+                    management,
+                    clean energy, access to clean water and sanitation, improved health services, social
+                    inclusion,
+                    and
+                    socio-economic empowerment for vulnerable groups.
+                </p>
+            </div>
+            <!-- IMPORTANT FIX: Added items-start to prevent grid items from stretching and creating white space -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- Card 1 - Animation 3: Zoom In/Up (Delay 300) -->
+                <div class="bg-white rounded-lg shadow-md flex items-start p-6 space-x-4" data-aos="zoom-in-up"
+                    data-aos-delay="300" data-aos-duration="600">
+                    <div class="text-green-600 text-5xl flex-shrink-0">
+                        <!-- Icon Animation Added Here -->
+                        <i class="fas fa-graduation-cap animate-icon-float"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 font-yeseva-one">Inclusive Education</h3>
+                        <p class="text-gray-600 mb-4">We are committed to providing quality education to
+                            underprivileged
+                            children. Our programs include school supplies, scholarships, and after-school tutoring
+                            to
+                            help
+                            them reach their full potential.<span class="full-text hidden"> We also partner with
+                                local
+                                schools to improve infrastructure and provide resources for teachers, ensuring a
+                                conducive
+                                learning environment for all students.</span></p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline toggle-read-more">Read
+                            More</a>
+                    </div>
+                </div>
+                <!-- Card 2 - Animation 4: Zoom In/Up (Delay 450) -->
+                <div class="bg-white rounded-lg shadow-md flex items-start p-6 space-x-4" data-aos="zoom-in-up"
+                    data-aos-delay="450" data-aos-duration="600">
+                    <div class="text-green-600 text-5xl flex-shrink-0">
+                        <!-- Icon Animation Added Here -->
+                        <i class="fas fa-seedling animate-icon-float" style="animation-delay: 0.5s;"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 font-yeseva-one">Green-Smart Agriculture
+                        </h3>
+                        <p class="text-gray-600 mb-4">We support sustainable farming methods to improve food
+                            security
+                            and
+                            empower local communities. Our initiatives promote eco-friendly practices and provide
+                            training
+                            to farmers on modern agricultural techniques.<span class="full-text hidden"> We also
+                                work to
+                                establish community gardens and urban farming projects that provide fresh produce
+                                and
+                                educational opportunities for residents.</span></p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline toggle-read-more">Read
+                            More</a>
+                    </div>
+                </div>
+                <!-- Card 3 - Animation 5: Zoom In/Up (Delay 600) -->
+                <div class="bg-white rounded-lg shadow-md flex items-start p-6 space-x-4" data-aos="zoom-in-up"
+                    data-aos-delay="600" data-aos-duration="600">
+                    <div class="text-green-600 text-5xl flex-shrink-0">
+                        <!-- Icon Animation Added Here -->
+                        <i class="fas fa-recycle animate-icon-float"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 font-yeseva-one">Environmental Protection
+                        </h3>
+                        <p class="text-gray-600 mb-4">We are committed to conserving natural resources and
+                            ecosystems
+                            while helping citizens adapt to and mitigate climate
+                            change. Through community-based conservation and climate resilience programs,<span
+                                class="full-text hidden">we work to
+                                protect biodiversity and
+                                promote sustainable coexistence between people and nature.</span></p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline toggle-read-more">Read
+                            More</a>
+                    </div>
+                </div>
+                <!-- Card 4 - Animation 6: Zoom In/Up (Delay 300 - new row starts) -->
+                <div class="bg-white rounded-lg shadow-md flex items-start p-6 space-x-4" data-aos="zoom-in-up"
+                    data-aos-delay="300" data-aos-duration="600">
+                    <div class="text-green-600 text-5xl flex-shrink-0">
+                        <!-- Icon Animation Added Here -->
+                        <i class="fas fa-lightbulb animate-icon-float" style="animation-delay: 0.2s;"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 font-yeseva-one">Clean Energy</h3>
+                        <p class="text-gray-600 mb-4">We promote the adoption of clean energy solutions in
+                            vulnerable
+                            communities. Our projects include installing solar panels and providing training on
+                            renewable
+                            energy technologies to create a more sustainable future.<span class="full-text hidden">
+                                We
+                                also
+                                advocate for policies that support renewable energy and work to make clean energy
+                                more
+                                accessible and affordable for all.</span></p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline toggle-read-more">Read
+                            More</a>
+                    </div>
+                </div>
+                <!-- Card 5 - Animation 7: Zoom In/Up (Delay 450) -->
+                <div class="bg-white rounded-lg shadow-md flex items-start p-6 space-x-4" data-aos="zoom-in-up"
+                    data-aos-delay="450" data-aos-duration="600">
+                    <div class="text-green-600 text-5xl flex-shrink-0">
+                        <!-- Icon Animation Added Here -->
+                        <i class="fas fa-tint animate-icon-float" style="animation-delay: 0.7s;"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 font-yeseva-one">Clean Water & Sanitation
+                        </h3>
+                        <p class="text-gray-600 mb-4">We work to ensure that all citizens have access to clean, safe
+                            drinking water and proper sanitation facilities. Our projects include well-drilling and
+                            constructing public latrines to improve community health.<span class="full-text hidden">
+                                We
+                                also
+                                conduct hygiene workshops and distribute water purification kits to prevent the
+                                spread
+                                of
+                                waterborne diseases and promote healthy habits.</span></p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline toggle-read-more">Read
+                            More</a>
+                    </div>
+                </div>
+                <!-- Card 6 - Animation 8: Zoom In/Up (Delay 600) -->
+                <div class="bg-white rounded-lg shadow-md flex items-start p-6 space-x-4" data-aos="zoom-in-up"
+                    data-aos-delay="600" data-aos-duration="600">
+                    <div class="text-green-600 text-5xl flex-shrink-0">
+                        <!-- Icon Animation Added Here -->
+                        <i class="fas fa-briefcase-medical animate-icon-float" style="animation-delay: 0.9s;"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 font-yeseva-one">Improved Health Services
+                        </h3>
+                        <p class="text-gray-600 mb-4">Our health initiatives focus on providing essential medical
+                            services
+                            to vulnerable groups. We organize mobile clinics and health awareness campaigns to
+                            ensure
+                            access
+                            to quality healthcare for all.<span class="full-text hidden"> We also partner with
+                                hospitals
+                                and
+                                medical professionals to provide free check-ups and treatments, focusing on
+                                preventive
+                                care
+                                and early disease detection.</span></p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline toggle-read-more">Read
+                            More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Counter Section -->
+    <section class="bg-[#191d34] text-white py-20 px-6 counter-section">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-10 md:mb-0 md:mr-10 text-center md:text-left">
+                <h2 class="text-4xl md:text-4xl font-extrabold leading-tight font-yeseva-one max-w-lg">
+                    Since <span class='text-green-600'>2024</span>, we’ve been serving those in need with trust and
+                    joy
+                </h2>
+                <a href="contact.html"
+                    class="inline-block mt-6 px-8 py-4 bg-white text-green-600 font-bold rounded-full shadow-lg hover:bg-[#191d34]">BE
+                    A PART OF US</a>
+            </div>
+            <div class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12">
+                <!-- Counter Card 1 -->
+                <div class="text-center">
+                    <i class="fas fa-trophy text-5xl mb-4"></i>
+                    <h3 class="text-5xl font-extrabold" id="awards-count">365</h3>
+                    <p class="text-lg font-medium">TOTAL AWARDS</p>
+                </div>
+                <!-- Counter Card 2 -->
+                <div class="text-center">
+                    <i class="fas fa-user-friends text-5xl mb-4"></i>
+                    <h3 class="text-5xl font-extrabold" id="volunteer-count">2200</h3>
+                    <p class="text-lg font-medium">TOTAL VOLUNTEER</p>
+                </div>
+                <!-- Counter Card 3 -->
+                <div class="text-center">
+                    <i class="fas fa-clipboard-list text-5xl mb-4"></i>
+                    <h3 class="text-5xl font-extrabold" id="projects-count">155</h3>
+                    <p class="text-lg font-medium">TOTAL PROJECTS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div>
+                <!-- Text Animation 1: Title slides from the right -->
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 font-yeseva-one" data-aos="fade-right"
+                    data-aos-duration="800">About <span class='text-green-600'>ASDC</span></h2>
+                <!-- Text Animation 2: Divider scales up quickly -->
+                <div class="w-20 h-1 bg-green-500 mb-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                </div>
+                <!-- Text Animation 3: Paragraph 1 slides from the right, staggered -->
+                <p class="text-gray-600 text-[20px] mb-4" data-aos="fade-right" data-aos-duration="800"
+                    data-aos-delay="400">ASDC was founded with a vision to create a future where people
+                    and the
+                    planet
+                    thrive together. We emerged from the recognition that climate change, environmental degradation,
+                    poverty, and social inequality are deeply interconnected and require integrated solutions.</p>
+                <!-- Text Animation 4: Paragraph 2 slides from the right, further staggered -->
+                <p class="text-gray-600 text-[20px]" data-aos="fade-right" data-aos-duration="800" data-aos-delay="600">
+                    By
+                    turning these global challenges into opportunities for
+                    resilience,
+                    innovation,
+                    and equity, ASDC empowers communities to adapt, prosper, and lead in building a sustainable
+                    future.
+                    From
+                    local villages to pre-urban centres, we partner with citizens, innovators, policymakers, and
+                    changemakers to turn challenges into solutions ensuring no one is left behind in the journey to
+                    sustainable development.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <!-- Image Animation 5: Image slides in from the left -->
+                <img src="Images/water and sanitation.webp" alt="ASDC team member"
+                    class="rounded-lg shadow-lg mb-4 h-96 object-cover w-full" data-aos="fade-left"
+                    data-aos-duration="800">
+                <!-- Text Animation 6: Caption fades up subtly -->
+                <p class=" text-sm text-gray-500 text-center" data-aos="fade-up" data-aos-duration="600"
+                    data-aos-delay="400">Dedicated to building a sustainable future for all.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Volunteer Section -->
+    <section class="bg-[#191d34] py-16 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+            <!-- Left Side with Image: Fades in from the left -->
+            <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                <img src="Images/volunteer - Edited.jpg"
+                    onerror="this.onerror=null; this.src='Images/volunteer - Edited.jpg';"
+                    alt="A team of diverse volunteers smiling" class="rounded-lg shadow-lg w-full h-auto">
+            </div>
+
+            <!-- Right Side with Text and List: Fades in from the right -->
+            <div class="w-full md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+                <p class="text-green-600 font-semibold uppercase tracking-wide mb-2">Join Us</p>
+                <h2 class="text-4xl font-bold text-white mb-6 font-yeseva-one">Why We Need You Become a <span
+                        class='text-green-600'>Volunteer</span>
+                </h2>
+                <p class="text-white mb-8">We help companies develop powerful corporate social responsibility,
+                    grantmaking, and employee engagement strategies.</p>
+
+                <div class="space-y-6">
+                    <!-- List Item 1: Fades up with a slight delay -->
+                    <div class="accordion-item flex items-start space-x-4" data-aos="fade-up" data-aos-delay="200">
+                        <i
+                            class="fa-solid fa-arrow-right text-green-600 text-2xl mt-1 transition-transform duration-300"></i>
+                        <div>
+                            <h3 class="accordion-header text-lg font-bold text-white cursor-pointer">Recognition
+                                and
+                                Fulfillment</h3>
+                            <p class="accordion-content text-sm text-white mt-2 hidden">By volunteering with
+                                ASDC,
+                                you
+                                will find personal fulfillment by directly contributing to a sustainable future.
+                                Your
+                                efforts help us implement integrated solutions to combat climate change and social
+                                inequality, providing you with a tangible sense of impact and purpose.</p>
+                        </div>
+                    </div>
+                    <!-- List Item 2: Fades up with a medium delay -->
+                    <div class="accordion-item flex items-start space-x-4" data-aos="fade-up" data-aos-delay="400">
+                        <i
+                            class="fa-solid fa-arrow-right text-green-600 text-2xl mt-1 transition-transform duration-300"></i>
+                        <div>
+                            <h3 class="accordion-header text-lg font-bold text-white cursor-pointer">Why Join Us
+                                as a
+                                Volunteer?</h3>
+                            <p class="accordion-content text-sm text-white mt-2 hidden">Joining as a volunteer
+                                offers
+                                a
+                                unique opportunity to apply your skills in a purposeful way. Whether you are helping
+                                to
+                                implement a new community initiative or assisting with administrative tasks, your
+                                contribution is vital to our mission of empowering communities to build resilience
+                                and
+                                prosper.</p>
+                        </div>
+                    </div>
+                    <!-- List Item 3: Fades up with a long delay -->
+                    <div class="accordion-item flex items-start space-x-4" data-aos="fade-up" data-aos-delay="600">
+                        <i
+                            class="fa-solid fa-arrow-right text-green-600 text-2xl mt-1 transition-transform duration-300"></i>
+                        <div>
+                            <h3 class="accordion-header text-lg font-bold text-white cursor-pointer">Be Part of a
+                                Community</h3>
+                            <p class="accordion-content text-sm text-white mt-2 hidden">Becoming a volunteer with
+                                ASDC
+                                means joining a global community of innovators, policymakers, and changemakers. You
+                                will
+                                collaborate with like-minded individuals, expand your professional network, and
+                                build
+                                meaningful relationships while working together towards a shared vision of a
+                                thriving
+                                world.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Our Partners Section -->
+    <section class="bg-gray-50 py-16 px-6">
+        <div class="container mx-auto">
+            <!-- Section Title: Fades down from the top -->
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16 font-yeseva-one"
+                data-aos="fade-down" data-aos-duration="800">
+                Our <span class='text-green-600'>Valued</span> Partners
+                <span class="block w-24 h-1 bg-green-600 mx-auto mt-2 rounded-full"></span>
+            </h2>
+
+            <!-- Partners Display (Centered Flexbox) -->
+            <div class="flex flex-wrap justify-center items-center gap-12 sm:gap-16">
+
+                <!-- Partner Logo 1: Zooms in immediately -->
+                <div class="p-4 w-40 sm:w-56" data-aos="zoom-in" data-aos-duration="800">
+                    <img src="Images/HIHFD-removebg-preview.png" alt="HIHFD Logo"
+                        class="h-auto max-h-28 w-full object-contain mx-auto">
+                </div>
+
+                <!-- Partner Logo 2: Zooms in with 200ms delay -->
+                <div class="p-4 w-40 sm:w-56" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
+                    <img src="Images/Crossland-removebg-preview.png" alt="Crossland Logo"
+                        class="h-auto max-h-32 w-full object-contain mx-auto">
+                </div>
+
+                <!-- Partner Logo 3: Zooms in with 400ms delay -->
+                <div class="p-4 w-40 sm:w-56" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800">
+                    <img src="Images/Newearth.png" alt="Newearth Logo"
+                        class="h-auto max-h-28 w-full object-contain mx-auto">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#F3FCF8] text-gray-200 py-16 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Column 1: Logo and description -->
+                <div>
+                    <a href="index.html" class="text-3xl font-bold font-yeseva-one text-white">
+                        <img src="Images/logo-removebg-preview.png" alt="ASDC logo" class="h-24 w-auto">
+                    </a>
+                    <p class="mt-4 text-sm text-[#7A7B7C]">
+                        ASDC is committed to advancing sustainable development and citizen welfare through
+                        integrated
+                        action.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:border-white transition-colors text-blue-600 bg-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:border-white transition-colors bg-blue-600">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:border-white transition-colors bg-white">
+                            <i class="fab fa-youtube text-red-600"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:border-white transition-colors bg-blue-600">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Column 2: Quick Links -->
+                <div class="text-[#7A7B7C]">
+                    <h4 class="text-lg font-bold text-black mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-[#191d34] transition-colors">Home</a></li>
+                        <li><a href="About.html" class="hover:text-[#191d34] transition-colors">About us</a></li>
+                        <li><a href="contact.html" class="hover:text-[#191d34] transition-colors">Contact</a></li>
+                        <li><a href="donation_form.html" class="hover:text-[#191d34] transition-colors">Donate</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Our Services -->
+                <div class="text-[#7A7B7C]">
+                    <h4 class="text-lg font-bold text-black mb-6">Our Services</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><span class="hover:text-[#191d34] transition-colors">Education Support</span></li>
+                        <li><span class="hover:text-[#191d34] transition-colors">Food Support</span></li>
+                        <li><span class="hover:text-[#191d34] transition-colors">Health Support</span></li>
+                        <li><span class="hover:text-[#191d34] transition-colors">Children's Protection</span></li>
+                        <li><span class="hover:text-[#191d34] transition-colors">Community Help</span></li>
+                    </ul>
+                </div>
+                <!-- Column 4: Get In Touch -->
+                <div class="text-[#7A7B7C]">
+                    <h4 class="text-lg font-bold text-black mb-6">Get In Touch</h4>
+                    <p class="text-sm">Rwanda,Kamonyi district,Runda sector.</p>
+                    <p class="mt-3 text-sm flex items-center space-x-2 hover:text-[#191d34]">
+                        <a href="tel:+250788698188">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+250788698188</span>
+                        </a>
+                    </p>
+                    <p class="mt-3 text-sm flex items-center space-x-2 hover:text-[#191d34]">
+                        <a href="tel:+250782767273">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+250782767273</span>
+                        </a>
+                    </p>
+                    <p class="mt-4 text-sm flex items-center space-x-2 hover:text-[#191d34]">
+                        <a href="mailto:asdcwelfare@gmail.com">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>asdcwelfare@gmail.com</span>
+                        </a>
+                    </p>
+                    <div class="mt-6">
+                        <a href="#"
+                            class="inline-block px-6 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-[#191d34] transition-colors">Donate
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 text-center font-bold text-black text-sm">
+            <p>Copyright © ASDC. All Rights Reserved. </p>
+        </div>
+    </footer>
+
+
+    <!-- Load AOS JavaScript and initialize -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize AOS with a 'once: true' setting so animations only happen the first time
+            // the element enters the viewport.
+            AOS.init({
+                once: false,
+                duration: 800, // Standard animation duration
+            });
+        });
+    </script>
+    <script src="Js/main.js"></script>
+</body>
+
+</html>
